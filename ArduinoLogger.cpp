@@ -14,10 +14,15 @@ void ArduinoLogger::add(const String& name, float& variable) {
 }
 
 void ArduinoLogger::send() {
+    Serial.print("sensor_id:");
     Serial.print(_sensorId);
+
     for (int i = 0; i < _count; i++) {
         Serial.print(",");
+        Serial.print(_names[i]);
+        Serial.print(":");
         Serial.print(*_values[i], 4); // 4 decimal places
     }
+
     Serial.println();
 }
