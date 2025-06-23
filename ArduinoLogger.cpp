@@ -1,11 +1,11 @@
-#include "SensorLogger.h"
+#include "ArduinoLogger.h"
 
-SensorLogger::SensorLogger(const String& sensorId) {
+ArduinoLogger::ArduinoLogger(const String& sensorId) {
     _sensorId = sensorId;
     _count = 0;
 }
 
-void SensorLogger::add(const String& name, float& variable) {
+void ArduinoLogger::add(const String& name, float& variable) {
     if (_count < MAX_SENSORS) {
         _names[_count] = name;
         _values[_count] = &variable;
@@ -13,7 +13,7 @@ void SensorLogger::add(const String& name, float& variable) {
     }
 }
 
-void SensorLogger::send() {
+void ArduinoLogger::send() {
     Serial.print(_sensorId);
     for (int i = 0; i < _count; i++) {
         Serial.print(",");

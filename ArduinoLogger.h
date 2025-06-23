@@ -1,11 +1,11 @@
-#ifndef SENSORLOGGER_H
-#define SENSORLOGGER_H
+#ifndef ARDUINOLOGGER_H
+#define ARDUINOLOGGER_H
 
 #include <Arduino.h>
 
-class SensorLogger {
+class ArduinoLogger {
 public:
-    SensorLogger(const String& sensorId);
+    ArduinoLogger(const String& sensorId);
     void add(const String& name, float& variable);
     void send();
 
